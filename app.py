@@ -50,6 +50,20 @@ def main():
         st.write(
             "Welcome to our Brain MRI Predictor! This Streamlit app utilizes cutting-edge Convolutional Neural Network (CNN) technology to analyze brain MRI images and predict the presence of abnormalities with an impressive 98% accuracy rate. Simply upload your MRI image, and our powerful model will swiftly process it, providing you with insights into the presence of any anomalies. Whether you're a healthcare professional or an individual concerned about your brain health, our app offers a reliable and accessible tool for early detection and diagnosis."
         )
+        st.subheader("Samples of data: ")
+        st.image("resource/examples.png")
+        st.subheader("Model Parameteres: ")
+        st.image("resource/parameters.png", use_column_width=True)
+        st.subheader("Loss vs Accuracy plot over Training and validation set:")
+        st.image("resource/training.png", use_column_width=True)
+        code = """
+        Model_Results = Model.evaluate(Test_Set, verbose=False)
+        print("LOSS: " + "%.4f" % Model_Results[0])
+        print("ACCURACY: " + "%.4f" % Model_Results[1])
+        """
+
+        st.code(code, language="python", line_numbers=False)
+        st.text("LOSS: 0.0965\nACCURACY: 0.9800")
 
 
 if __name__ == "__main__":
